@@ -4,9 +4,24 @@ file = File.open(fileToOpen, 'r')
 
 word = file.read
 
-def seqSearch(wordListString)
-  wordArray = wordListString.split("\n")
-  print wordArray
+$wordObject = {}
+$wordArray = []
+
+def arrayConvert(wordListString)
+  $wordArray = wordListString.split("\n")
+  print "word array: ", $wordArray
+  return $wordArray
 end
 
-seqSearch(word)
+def objectStuff(wordArray)
+  $wordArray.each do |word|
+    $wordObject[word.to_sym] = {
+      :word => word,
+      :seq => []
+      }
+  end
+  puts "\n word Object: ", $wordObject.inspect
+end
+
+arrayConvert(word)
+objectStuff($wordArray)
