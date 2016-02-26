@@ -4,4 +4,9 @@ file = File.open(fileToOpen, 'r')
 
 word = file.read
 
-puts word
+def seqSearch(wordListString)
+  wordArray = wordListString.split("\n")
+  print wordArray
+end
+
+seqSearch(word)
