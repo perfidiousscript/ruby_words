@@ -44,7 +44,18 @@ def perm(objectList)
   end
 end
 
+def writeFiles(sequenceList)
+  wordOutput = File.open('word_output.txt','w')
+  sequenceOutput = File.open('sequence_output.txt','w')
+  sequenceList.each do |key,value|
+    unless value["is_duplicate"] == true
+      wordOutput.write(value["word"] + "\n")
+      sequenceOutput.write(value["seq"] + "\n")
+    end
+  end
+end
+
 arrayConvert(word)
 objectStuff($wordArray)
 perm($wordObject)
-puts "here is seqList: ", $seqList
+writeFiles($seqList)
